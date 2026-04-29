@@ -1,0 +1,20 @@
+[build-system]
+requires=["poetry-core>=1.0.0"]
+build-backend="poetry.core.masonry.api"
+
+[tool.poetry]
+name="RL homework2"
+version="0.1.0"
+description="RL homework2 problem4 environment"
+readme="README.md"
+authors=["Wei Yu-Shyang <dunkun130897441@gmail.com>"]
+package-mode=false
+
+[tool.poetry.dependencies]
+python=">=3.9, <3.11"
+gymnasium="^1.0.0"
+numpy="^1.24.0"
+torch="^2.0.0"
+tqdm="^4.66.0"
+wandb="^0.16.0"
+
