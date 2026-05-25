@@ -1,0 +1,106 @@
+diff --git a/HW1/spec/reinforce.py b/HW1/spec/reinforce.py
+index ad2f17c..2cfe1a8 100644
+--- a/HW1/spec/reinforce.py
++++ b/HW1/spec/reinforce.py
+@@ -2,7 +2,7 @@
+ # HW1: REINFORCE with baseline and GAE
+ 
+ import os
+-import gym
++import gymnasium as gym
+ from itertools import count
+ from collections import namedtuple
+ import numpy as np
+@@ -122,11 +122,11 @@ class GAE:
+         self.num_steps = num_steps          # set num_steps = None to adapt full batch
+ 
+     def __call__(self, rewards, values, done):
+-    """
+-        Implement Generalized Advantage Estimation (GAE) for your value prediction
+-        TODO (1): Pass correct corresponding inputs (rewards, values, and done) into the function arguments
+-        TODO (2): Calculate the Generalized Advantage Estimation and return the obtained value
+-    """
++        """
++            Implement Generalized Advantage Estimation (GAE) for your value prediction
++            TODO (1): Pass correct corresponding inputs (rewards, values, and done) into the function arguments
++            TODO (2): Calculate the Generalized Advantage Estimation and return the obtained value
++        """
+ 
+         ########## YOUR CODE HERE (8-15 lines) ##########
+ 
+@@ -159,7 +159,7 @@ def train(lr=0.01):
+     # run inifinitely many episodes
+     for i_episode in count(1):
+         # reset environment and episode reward
+-        state = env.reset()
++        state, _ = env.reset()
+         ep_reward = 0
+         t = 0
+ 
+@@ -192,26 +192,24 @@ def train(lr=0.01):
+             break
+ 
+ 
+-def test(name, n_episodes=10):
++def test(name, env_name, n_episodes=10):
+     """
+         Test the learned model (no change needed)
+     """     
+     model = Policy()
+     
+     model.load_state_dict(torch.load('./preTrained/{}'.format(name)))
+-    
+-    render = True
++    env = gym.make(env_name, render_mode='human')
+     max_episode_len = 10000
+     
+     for i_episode in range(1, n_episodes+1):
+-        state = env.reset()
++        state, _ = env.reset()
+         running_reward = 0
+         for t in range(max_episode_len+1):
+             action = model.select_action(state)
+-            state, reward, done, _ = env.step(action)
++            state, reward, terminations, truncations, _ = env.step(action)
++            done = np.logical_or(terminations, truncations)
+             running_reward += reward
+-            if render:
+-                 env.render()
+             if done:
+                 break
+         print('Episode {}\tReward: {}'.format(i_episode, running_reward))
+@@ -222,8 +220,9 @@ if __name__ == '__main__':
+     # For reproducibility, fix the random seed
+     random_seed = 10  
+     lr = 0.01
+-    env = gym.make('CartPole-v0')
+-    env.seed(random_seed)  
++    env_name = 'CartPole-v0'
++    env = gym.make(env_name)
++    obs, _ = env.reset(seed=random_seed)
+     torch.manual_seed(random_seed)  
+     train(lr)
+-    test(f'CartPole_{lr}.pth')
++    test(f'CartPole_{lr}.pth', env_name)
+diff --git a/HW1/src/reinforce.py b/HW1/src/reinforce.py
+index 92f33e7..2c2acd1 100644
+--- a/HW1/src/reinforce.py
++++ b/HW1/src/reinforce.py
+@@ -320,4 +320,4 @@ if __name__ == '__main__':
+     obs, _ = env.reset(seed=random_seed)
+     torch.manual_seed(random_seed)  
+     train(lr)
+-    test(f'CartPole_{lr}.pth', env_name)
++    test(f'CartPole_{lr}.pth', env_name)
+\ No newline at end of file
+diff --git a/HW1/src/reinforce_baseline.py b/HW1/src/reinforce_baseline.py
+index e0653f9..bac3d18 100644
+--- a/HW1/src/reinforce_baseline.py
++++ b/HW1/src/reinforce_baseline.py
+@@ -335,4 +335,4 @@ if __name__ == '__main__':
+     obs, _ = env.reset(seed=random_seed)
+     torch.manual_seed(random_seed)  
+     train(lr)
+-    test(f'LunarLander_{lr}.pth', env_name)
++    test(f'LunarLander_{lr}.pth', env_name)
+\ No newline at end of file

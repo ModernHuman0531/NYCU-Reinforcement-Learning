@@ -1,0 +1,128 @@
+{
+    "os": "Linux-7.0.9-arch1-1-x86_64-with-glibc2.43",
+    "python": "3.10.20",
+    "heartbeatAt": "2026-05-25T14:26:30.399391",
+    "startedAt": "2026-05-25T14:26:26.320350",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/home/dunkun/Documents/NYCU-Reinforcement-Learning/HW3/src/sac_starter.py",
+    "codePathLocal": "sac_starter.py",
+    "codePath": "HW3/src/sac_starter.py",
+    "git": {
+        "remote": "git@github.com:ModernHuman0531/NYCU-Reinforcement-Learning.git",
+        "commit": "03c371b33d2121d53d853e03f575d536f098cc61"
+    },
+    "email": "dunkun130897441@gmail.com",
+    "root": "/home/dunkun/Documents/NYCU-Reinforcement-Learning",
+    "host": "dunkun-cyborg15a12ve",
+    "username": "dunkun",
+    "executable": "/home/dunkun/Documents/NYCU-Reinforcement-Learning/HW3/src/.venv/bin/python",
+    "cpu_count": 10,
+    "cpu_count_logical": 16,
+    "cpu_freq": {
+        "current": 476.097,
+        "min": 400.0,
+        "max": 4350.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 500.0,
+            "min": 400.0,
+            "max": 4600.0
+        },
+        {
+            "current": 500.0,
+            "min": 400.0,
+            "max": 4600.0
+        },
+        {
+            "current": 479.517,
+            "min": 400.0,
+            "max": 4600.0
+        },
+        {
+            "current": 475.506,
+            "min": 400.0,
+            "max": 4600.0
+        },
+        {
+            "current": 480.529,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 500.015,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 400.0,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 499.989,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 489.653,
+            "min": 400.0,
+            "max": 4600.0
+        },
+        {
+            "current": 478.229,
+            "min": 400.0,
+            "max": 4600.0
+        },
+        {
+            "current": 488.279,
+            "min": 400.0,
+            "max": 4600.0
+        },
+        {
+            "current": 480.404,
+            "min": 400.0,
+            "max": 4600.0
+        },
+        {
+            "current": 400.014,
+            "min": 400.0,
+            "max": 3500.0
+        },
+        {
+            "current": 394.59,
+            "min": 400.0,
+            "max": 3500.0
+        },
+        {
+            "current": 399.395,
+            "min": 400.0,
+            "max": 3500.0
+        },
+        {
+            "current": 399.64,
+            "min": 400.0,
+            "max": 3500.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 78.1898422241211,
+            "used": 52.36400604248047
+        }
+    },
+    "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+            "memory_total": 6439305216
+        }
+    ],
+    "memory": {
+        "total": 38.87431335449219
+    }
+}
