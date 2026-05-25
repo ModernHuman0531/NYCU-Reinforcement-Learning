@@ -1,0 +1,19 @@
+[build-system]
+requires=["poetry-core>=1.0.0"]
+build-backend = "poetry.core.mansory.api"
+
+[tool.poetry]
+name="RL_homework3"
+version="0.1.0"
+description="RL homework3 problem 2 environment"
+readme="README.md"
+authors=["Wei Yu-Shyang <dunkun130897441@gmail.com>"]
+package-mode=false
+
+[tool.poetry.dependencies]
+python=">=3.8, <=3.11"
+gymnasium="1.1.1"
+numpy="^1.24.0"
+torch="^2.0.0"
+wandb="^0.16.0"
+robosuite="^1.5.0"
