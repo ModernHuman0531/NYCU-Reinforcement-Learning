@@ -2,7 +2,7 @@
 
 # Set environment variables
 PYTHON-VERSION:=3.10
-TARGET_FILE:=train_dpo_starter.py
+TARGET_FILE:=train_dpo.py
 
 # .PHONY the targets that are not files
 .PHONY: all check-uv-installed get-python-version init modify-depend run clean
